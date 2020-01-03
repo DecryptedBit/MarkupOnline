@@ -43,8 +43,9 @@
             <div class="ide-actions-bottom"></div>
         </div>
         <div class="ide-preview-wrapper">
-            <div class="pdf-viewer viewerContainer">
-                <canvas id="pdf-canvas"></canvas>
+            <div id="viewerContainer" class="pdf-viewer">
+                <!-- <canvas id="pdf-canvas"></canvas> -->
+                <div id="viewer" class="pdfViewer"></div>
             </div>
         </div>
     </div>
@@ -54,13 +55,16 @@
 {% block include_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='vendor/codemirror/lib/codemirror.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='vendor/codemirror/theme/dracula.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='node_modules/pdfjs-dist/web/pdf_viewer.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ide.css') }}">
 {% endblock %}
 
 {% block include_js %}
 <script src="{{ url_for('static', filename='vendor/codemirror/lib/codemirror.js') }}"></script>
 <script src="{{ url_for('static', filename='vendor/codemirror/mode/markdown/markdown.js') }}"></script>
-<script src="{{ url_for('static', filename='vendor/pdfjs-2.3.200-dist/build/pdf.js') }}"></script>
+<!-- <script src="{{ url_for('static', filename='vendor/pdfjs-2.3.200-dist/build/pdf.js') }}"></script> -->
+<script src="{{ url_for('static', filename='node_modules/pdfjs-dist/build/pdf.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/pdfjs-dist/web/pdf_viewer.js') }}"></script>
 <script src="{{ url_for('static', filename='js/ide.js') }}"></script>
 <script src="{{ url_for('static', filename='js/pdf_viewer.js') }}"></script>
 {% endblock %}
