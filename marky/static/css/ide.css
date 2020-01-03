@@ -1,0 +1,99 @@
+body {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100vh;
+}
+
+main {
+    height: calc(100% - 100px);
+    margin: 0;
+}
+
+footer {
+    height: 50px;
+}
+
+.copyright {
+    text-align: left;
+    padding: 0 1em 0 1em;
+    height: 100%;
+    line-height: 50px;
+}
+
+/* *IDE* */
+
+.ide {
+    height: 100%;
+}
+
+.btn-ide-action {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 60px;
+    font-size: 1.2rem;
+    background-color: #3e3e3e;
+    transition: background-color 200ms;
+}
+
+.btn-ide-action:hover {
+    background-color: #353535;
+}
+
+.btn-compile {
+}
+
+.ide-plane {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.ide-code-wrapper {
+    position: relative;
+    flex-basis: 48%;
+    max-width: 48%;
+    height: 100%;
+}
+
+.ide-code-wrapper #code {
+    height: 100%;
+    overflow: hidden;
+    /* max-height: calc(100vh-200px); */
+}
+
+.CodeMirror {
+    font-size: 14px;
+    height: 100%;
+}
+
+.ide-actions-wrapper {
+    flex-basis: 4%;
+    display: flex;
+    flex-flow: column nowrap;
+    background: #3e3e3e;
+}
+
+.ide-actions-top,
+.ide-actions-bottom {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.ide-preview-wrapper {
+    background-color: #282a36 ;
+    flex-basis: 48%;
+}
+
+/* *pdf viewer* */
+.pdf-viewer {
+    height: 100%;
+    overflow-y: scroll;
+    font-family: sans-serif;
+}
+
+#pdf-canvas {
+    height: 100%;
+}

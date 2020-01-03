@@ -1,0 +1,63 @@
+{% extends "editor/base.html" %}
+
+{% block navbar %}
+<!-- <button class="navbar-toggle">
+    <span class="navbar-toggle-icon"><i class="icon ion-md-menu"></i></span>
+</button> -->
+<div class="nav-logo">
+    <a href="{{ url_for('editor.index') }}">Marky</a>
+</div>
+<div class="nav-collapse"> 
+    <ul>
+        <li>
+            <a href="#">Settings</a>
+        </li>
+        <li>
+            <a href="#">Logout</a>
+        </li>
+    </ul>
+</div>
+{% endblock %}
+
+{% block body %}
+<div class="row">
+    <section class="file-browser">
+        <div class="projects">
+            <div class="projects-toolbar">
+                <button class="btn">
+                    <span> New Project</span>
+                </button>
+                <button class="btn">
+                    <span> Other Action</span>
+                </button>
+            </div>
+            <div class="projects-list">
+                <table class="projects-table">
+                    <tr class="projects-list-row projects-list-header">
+                        <th class="projects-list-name-cell">Title</th>
+                        <th class="projects-list-info-cell">Info</th>
+                        <th class="projects-list-actions-cell">Actions</th>
+                    </tr>
+                    {% for i in range(1, 10) %}
+                    <tr class="projects-list-row">
+                        <td class="projects-list-name-container"><a href="{{ url_for('editor.ide', identifier=i) }}">Project {{ i }}</a></td>
+                        <td class="projects-list-info-container">Project {{ i }} &mdash; Information</td>
+                        <td class="projects-list-actions-container">
+                            <button class="btn btn-table btn-table-downlaod">
+                                <span><i class="icon ion-md-download"></i></span>
+                            </button>
+                            <button class="btn btn-table btn-table-copy">
+                                <span><i class="icon ion-md-copy"></i></span>
+                            </button>
+                            <button class="btn btn-table btn-table-delete">
+                                <span><i class="icon ion-md-trash"></i></span>
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

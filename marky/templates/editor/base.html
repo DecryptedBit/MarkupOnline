@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <title>Marky | {% block title %}{% endblock %}</title> -->
+        <title>Editor | Marky</title>
+        <!-- <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}"/> -->
+        <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/editor.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/queries.css') }}">
+        {% block include_css %}
+        {% endblock %}
+        <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    {% block navbar %}
+                    {% endblock %}
+                </div>
+            </nav>
+        </header>
+        
+        <main>
+            {% block body %}
+            {% endblock %}
+        </main>
+
+        <footer>
+            <p class="copyright">Copyright &copy; 2020 <a href="{{ url_for('main.index') }}">Marky</a>. All rights reserved.</p> 
+        </footer>
+
+        {% block include_js %}
+        {% endblock %}
+        
+    </body>
+</html>

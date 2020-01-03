@@ -1,0 +1,10 @@
+menv/
+
+*.pyc
+__pycache__/
+
+.vscode/
+
+*.db
+*.md
+*.pdf
