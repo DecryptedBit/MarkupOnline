@@ -1,4 +1,4 @@
-from flask import current_app, Blueprint, render_template, jsonify
+from flask import current_app, Blueprint, render_template, jsonify, send_from_directory
 
 editor = Blueprint('editor', __name__, url_prefix='/editor')
 
@@ -10,6 +10,8 @@ def index():
 def ide(identifier):
     return render_template('editor/editor.html')
 
-@editor.route('/test')
-def ide_test():
-    return render_template('editor/tmp.html')
+@editor.route('/serve')
+def serve():
+    return send_from_directory(current_app.static_folder, 
+                               'sample.pdf', 
+                               mimetype='application/pdf')

@@ -3,6 +3,9 @@ body {
     flex-direction: column;
     position: relative;
     height: 100vh;
+    height: var(--full-height, 100vh);
+    width: 100vw;
+    width: var(--full-width, 100vw)
 }
 
 main {
@@ -90,22 +93,9 @@ footer {
 /* *pdf viewer* */
 .pdf-viewer {
     height: 100%;
-    /* overflow-y: scroll; */
-    /* font-family: sans-serif; */
 }
 
-#pdf-canvas {
+.pdf-frame {
     height: 100%;
-}
-
-#viewerContainer {
-    overflow-y: scroll;
-    overflow-x: scroll;
-    position: relative;
     width: 100%;
-    height: 100%;
-}
-
-.pdfViewer .page {
-    margin-bottom: 14px;
 }

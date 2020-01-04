@@ -44,8 +44,7 @@
         </div>
         <div class="ide-preview-wrapper">
             <div id="viewerContainer" class="pdf-viewer">
-                <!-- <canvas id="pdf-canvas"></canvas> -->
-                <div id="viewer" class="pdfViewer"></div>
+                <iframe class="pdf-frame" src="{{ url_for('editor.serve') }}" frameborder="0"></iframe>
             </div>
         </div>
     </div>
@@ -55,16 +54,27 @@
 {% block include_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='vendor/codemirror/lib/codemirror.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='vendor/codemirror/theme/dracula.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='node_modules/pdfjs-dist/web/pdf_viewer.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ide.css') }}">
 {% endblock %}
 
 {% block include_js %}
 <script src="{{ url_for('static', filename='vendor/codemirror/lib/codemirror.js') }}"></script>
 <script src="{{ url_for('static', filename='vendor/codemirror/mode/markdown/markdown.js') }}"></script>
-<!-- <script src="{{ url_for('static', filename='vendor/pdfjs-2.3.200-dist/build/pdf.js') }}"></script> -->
-<script src="{{ url_for('static', filename='node_modules/pdfjs-dist/build/pdf.js') }}"></script>
-<script src="{{ url_for('static', filename='node_modules/pdfjs-dist/web/pdf_viewer.js') }}"></script>
 <script src="{{ url_for('static', filename='js/ide.js') }}"></script>
-<script src="{{ url_for('static', filename='js/pdf_viewer.js') }}"></script>
+<script>
+    window.addEventListener('load', () => {
+        resize_body();
+    });
+
+    window.addEventListener('resize', () => {
+        resize_body();
+    });
+
+    function resize_body() {
+        const h = window.innerHeight;
+        const w = window.innerWidth;
+        document.documentElement.style.setProperty('--full-height', `${h}px`);
+        document.documentElement.style.setProperty('--full-width', `${w}px`);
+    }
+</script>
 {% endblock %}
