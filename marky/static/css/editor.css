@@ -4,6 +4,7 @@ footer {
 
 .navbar {
     margin: 0;
+    border-top: 0px solid transparent;
 }
 
 .navbar .container {
