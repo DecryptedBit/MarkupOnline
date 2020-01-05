@@ -12,7 +12,7 @@
 <div class="nav-collapse"> 
     <ul>
         <li>
-            <a href="#">
+            <a href="#" id="open-settings-modal">
                 <span><i class="icon ion-md-settings nav-icon"></i></span>
             </a>
         </li>
@@ -49,6 +49,15 @@
         </div>
     </div>
 </section>
+
+<div class="modal-overlay modal-closed" id="modal-overlay"></div>
+<div id="settings-modal" class="modal modal-closed">
+    <div class="modal-body">
+        <h1>Settings</h1>
+        Modal body.
+        <button class="btn" id="close-settings-modal">Close</button>
+    </div>
+</div>
 {% endblock %}
 
 {% block include_css %}
@@ -62,6 +71,7 @@
 <script src="{{ url_for('static', filename='vendor/codemirror/lib/codemirror.js') }}"></script>
 <script src="{{ url_for('static', filename='vendor/codemirror/mode/markdown/markdown.js') }}"></script>
 <script src="{{ url_for('static', filename='js/ide.js') }}"></script>
+<script src="{{ url_for('static', filename='js/modal.js') }}"></script>
 <script>
     window.addEventListener('load', () => {
         resize_body();
