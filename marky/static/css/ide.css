@@ -17,14 +17,14 @@ footer {
     height: 50px;
 }
 
+/* *IDE reusables* */
+
 .copyright {
     text-align: left;
     padding: 0 1em 0 1em;
     height: 100%;
     line-height: 50px;
 }
-
-/* *IDE* */
 
 .ide {
     height: 100%;
@@ -47,6 +47,8 @@ footer {
 .btn-compile {
 }
 
+/* *IDE Wrappers* */
+
 .ide-plane {
     display: flex;
     flex-flow: row nowrap;
@@ -56,46 +58,43 @@ footer {
 
 .ide-code-wrapper {
     position: relative;
-    flex-basis: 48%;
-    max-width: 48%;
+    flex-basis: 50%;
     height: 100%;
 }
 
-.ide-code-wrapper #code {
-    height: 100%;
-    overflow: hidden;
-    /* max-height: calc(100vh-200px); */
-}
+    .ide-code-wrapper #code {
+        height: 100%;
+        overflow: hidden;
+    }
 
-.CodeMirror {
-    font-size: 14px;
-    height: 100%;
-}
+    .CodeMirror {
+        font-size: 14px;
+        height: 100%;
+    }
 
 .ide-actions-wrapper {
-    flex-basis: 4%;
     display: flex;
     flex-flow: column nowrap;
+    flex: 0 0 3em;
     background: #3e3e3e;
 }
 
-.ide-actions-top,
-.ide-actions-bottom {
-    display: flex;
-    flex-flow: column nowrap;
-}
+    .ide-actions-top,
+    .ide-actions-bottom {
+        display: flex;
+        flex-flow: column nowrap;
+    }
 
 .ide-preview-wrapper {
     background-color: #282a36 ;
-    flex-basis: 48%;
+    flex-basis: 50%;
 }
 
-/* *pdf viewer* */
-.pdf-viewer {
-    height: 100%;
-}
+    .pdf-viewer {
+        height: 100%;
+    }
 
-.pdf-frame {
-    height: 100%;
-    width: 100%;
-}
+    .pdf-frame {
+        height: 100%;
+        width: 100%;
+    }

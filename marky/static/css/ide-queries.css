@@ -1,0 +1,6 @@
+@media screen and (max-device-height: 264px) {
+    .ide-actions-wrapper {
+        display: none;
+    }
+}
+  
