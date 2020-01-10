@@ -3,6 +3,7 @@ from pathlib import Path
 
 class Config:
     DEBUG = False
+    UPLOAD_FOLDER = 'marky/static/uploads/'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SECRET_KEY = os.environ.get('SECRET_KEY', 'please_change_later')
     SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
