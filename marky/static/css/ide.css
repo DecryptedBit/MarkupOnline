@@ -57,13 +57,13 @@ footer {
 
 .ide-code-wrapper {
     position: relative;
-    flex-basis: 50%;
+    flex: 0 0 50%;
     height: 100%;
+    max-width: 50%;
 }
 
     .ide-code-wrapper #code {
         height: 100%;
-        overflow: hidden;
     }
 
     .CodeMirror {
