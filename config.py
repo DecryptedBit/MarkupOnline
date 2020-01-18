@@ -9,7 +9,7 @@ class Config:
 
 class DevConfig(Config):
     DEBUG = True
-    # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + str(Path().resolve() / 'app' / 'database' / 'testing.db')
+    # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + str(Path().resolve() / 'marky' / 'database' / 'testing.db')
     SQLALCHEMY_DATABASE_URI = 'sqlite:////tmp/marky_dev.db'
 
 class ProdConfig(Config):
