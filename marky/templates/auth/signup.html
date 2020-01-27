@@ -1,0 +1,38 @@
+{% extends "auth/base.html" %}
+
+{% block body %}
+
+<section class="grid">
+    <div class="box">
+        <h2 class="text-center">Sign up</h2>
+        <!-- <div class="divider"></div> -->
+        <div id="signup-form" class="form">
+            <form method="POST" action="{{ url_for('auth.sign_up') }}">
+                {{ form.hidden_tag() }}
+                <div class="form-item">
+                {{ form.username(size=32, placeholder='Username') }}
+                </div>
+                <div class="form-item">
+                {{ form.email(size=32, placeholder='email@address.com') }}
+                </div>
+                <div class="form-item">
+                {{ form.password(size=32, placeholder='Password') }}
+                </div>
+                <div class="form-item">
+                {{ form.verify_pw(size=32, placeholder='Confirm password') }}
+                </div>
+                <div class="form-item">
+                    {{ form.submit() }}
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="box">
+        <h2 class="text-center">Some info?</h2>
+        <!-- <div class="divider"></div> -->
+        <p>
+            Some text.
+        </p>
+    </div>
+</section>
+{% endblock %}

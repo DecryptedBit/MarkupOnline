@@ -1,17 +1,21 @@
 from flask import current_app, Blueprint, render_template, jsonify, send_from_directory, request
+from flask_login import login_required
 from marky.services.compiler import compile_md
 
 editor = Blueprint('editor', __name__, url_prefix='/editor')
 
 @editor.route('/')
+@login_required
 def index():
     return render_template('editor/index.html')
 
 @editor.route('/<identifier>')
+@login_required
 def ide(identifier):
     return render_template('editor/editor.html')
 
 @editor.route('/serve')
+@login_required
 def serve():
     """Function for testing purposes only..."""
     print('CURRENT APP FOLDER: ', current_app.static_folder)
@@ -20,6 +24,7 @@ def serve():
                                mimetype='application/pdf')
 
 @editor.route('/compile', methods=['POST'])
+@login_required
 def compile():
     """Function for testing purposes only..."""
     if request.method == 'POST':

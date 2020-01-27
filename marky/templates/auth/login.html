@@ -1,0 +1,32 @@
+{% extends "auth/base.html" %}
+
+{% block body %}
+
+<section class="grid">
+    <div class="box">
+        <h2 class="text-center">Login</h2>
+        <!-- <div class="divider"></div> -->
+        <div id="login-form" class="form">
+            <form method="POST" action="{{ url_for('auth.login') }}">
+                {{ form.hidden_tag() }}
+                <div class="form-item">
+                {{ form.username(size=32, placeholder='Username') }}
+                </div>
+                <div class="form-item">
+                {{ form.password(size=32, placeholder='Password') }}
+                </div>
+                <div class="form-item">
+                    {{ form.submit() }}
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="box">
+        <h2 class="text-center">Don't have an account?</h2>
+        <!-- <div class="divider"></div> -->
+        <p>
+            Register your account <a href="{{ url_for('auth.sign_up') }}">here</a>.
+        </p>
+    </div>
+</section>
+{% endblock %}

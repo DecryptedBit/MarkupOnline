@@ -1,5 +1,10 @@
 from werkzeug.security import generate_password_hash, check_password_hash
-from marky import db
+from marky import db, login_manager
+
+@login_manager.user_loader
+def load_user(uid):
+    """Return user object given it's id."""
+    return User.query.get(uid)
 
 class User(db.Model):
     __tablename__ = 'users'

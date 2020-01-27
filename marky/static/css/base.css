@@ -103,6 +103,10 @@ footer {
     border-radius: 0;
 }
 
+.text-center {
+    text-align: center;
+}
+
 /* *Navbar* */
 
 .banner {
@@ -221,4 +225,40 @@ footer {
 
 .box ul {
     list-style: none;
+}
+
+/* *forms* */
+
+.form-item {
+    margin-bottom: 6px;
+}
+
+.form {
+    /* margin: 0 auto; */
+}
+
+.form input,
+.form select,
+.form textarea {
+    padding: 12px 12px;
+    box-sizing: border-box;
+    border-radius: 0;
+    border: 1px solid #3E3E3E;
+    width: 100%;
+}
+
+.form input[type=submit],
+.form input[type=button] {
+    border-color: rgb(70, 70, 70);
+    background-color: white;
+    color: rgb(70, 70, 70);
+    cursor: pointer;
+    -webkit-transition: background-color 0.2s, color 0.2s;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.form input[type=submit]:hover,
+.form input[type=button]:hover {
+    background-color: rgb(73, 73, 73);
+    color: rgb(240, 240, 240);
 }
