@@ -53,7 +53,7 @@ def sign_up():
             db.session.add(user)
             db.session.commit()
             
-            return redirect(url_for('admin.login'))
+            return redirect(url_for('auth.login'))
 
         except IntegrityError:
             db.session.rollback()
