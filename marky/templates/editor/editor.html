@@ -43,8 +43,7 @@
             <div class="ide-actions-bottom"></div>
         </div>
         <div class="ide-preview-wrapper">
-            <div id="viewerContainer" class="pdf-viewer">
-                <iframe class="pdf-frame" src="{{ url_for('editor.serve') }}" frameborder="0"></iframe>
+            <div id="viewer-container" class="md-viewer">
             </div>
         </div>
     </div>
@@ -68,6 +67,7 @@
 {% endblock %}
 
 {% block include_js %}
+<script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
 <script src="{{ url_for('static', filename='vendor/codemirror/lib/codemirror.js') }}"></script>
 <script src="{{ url_for('static', filename='vendor/codemirror/mode/markdown/markdown.js') }}"></script>
 <script src="{{ url_for('static', filename='js/ide.js') }}"></script>

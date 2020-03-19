@@ -16,16 +16,26 @@ def ide(identifier):
 
 @editor.route('/serve')
 @login_required
-def serve():
+def serve_md():
+    """Function for testing purposes only..."""
+    # print('CURRENT APP FOLDER: ', current_app.static_folder)
+    # return send_from_directory(current_app.static_folder + '/uploads', 
+    #                            'test.pdf', 
+    #                            mimetype='application/pdf')
+    pass
+
+@editor.route('/serve_pdf')
+@login_required
+def serve_pdf():
     """Function for testing purposes only..."""
     print('CURRENT APP FOLDER: ', current_app.static_folder)
     return send_from_directory(current_app.static_folder + '/uploads', 
                                'test.pdf', 
                                mimetype='application/pdf')
 
-@editor.route('/compile', methods=['POST'])
+@editor.route('/compile_pdf', methods=['POST'])
 @login_required
-def compile():
+def compile_to_pdf():
     """Function for testing purposes only..."""
     if request.method == 'POST':
         data = request.get_json()
