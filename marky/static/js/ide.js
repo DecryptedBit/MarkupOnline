@@ -1,4 +1,3 @@
-
 let CM = CodeMirror(document.getElementById('code'), {
     lineNumbers: true,
     theme: "panda-syntax",
