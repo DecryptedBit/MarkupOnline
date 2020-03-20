@@ -43,7 +43,7 @@
             <div class="ide-actions-bottom"></div>
         </div>
         <div class="ide-preview-wrapper">
-            <div id="viewer-container" class="md-viewer">
+            <div id="viewer-container" class="md-viewer markdown-body">
             </div>
         </div>
     </div>
@@ -64,6 +64,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='vendor/codemirror/theme/panda-syntax.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ide.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ide-queries.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/github/markdown.css') }}">
 {% endblock %}
 
 {% block include_js %}

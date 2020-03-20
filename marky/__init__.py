@@ -6,7 +6,7 @@ from flask_migrate import Migrate
 from config import configs
 
 db = SQLAlchemy()
-migrate = Migrate()
+# migrate = Migrate()
 login_manager = LoginManager()
 
 def create_app():
@@ -14,7 +14,7 @@ def create_app():
     app.config.from_object(configs['dev'])
 
     db.init_app(app)
-    migrate.init_app(app, db)
+    # migrate.init_app(app, db)
     login_manager.init_app(app)
 
     with app.app_context():

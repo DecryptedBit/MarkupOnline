@@ -17,11 +17,6 @@ function compileMarkdown() {
     md_field.innerHTML = html;
 }
 
-// function updateViewer() {
-//     const iframe = document.querySelector('.pdf-frame');
-//     iframe.src = iframe.src + "?_=" + new Date().getTime();
-// }
-
 // function compileMarkdown() {
 //     md = CM.getValue();
     
