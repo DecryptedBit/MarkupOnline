@@ -1,9 +1,9 @@
 from flask import current_app, Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import login_required, logout_user, current_user, login_user
 from sqlalchemy.exc import IntegrityError
-from marky import db, login_manager
-from marky.models import User
-from marky.forms import LoginForm, RegistrationForm
+from mark_one import db, login_manager
+from mark_one.models import User
+from mark_one.forms import LoginForm, RegistrationForm
 
 # auth = Blueprint('auth', __name__, url_prefix='/auth')
 auth = Blueprint('auth', __name__)
@@ -20,9 +20,9 @@ def login():
             if user and user.check_password(password):
                 user.authenticated = True
                 db.session.commit()
-                
+
                 login_user(user)
-                
+
                 return redirect(url_for('editor.index'))
             else:
                 flash('wrong / misspelled credentials', 'error')

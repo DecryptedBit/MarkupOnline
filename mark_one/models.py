@@ -1,5 +1,5 @@
 from werkzeug.security import generate_password_hash, check_password_hash
-from marky import db, login_manager
+from mark_one import db, login_manager
 
 @login_manager.user_loader
 def load_user(uid):

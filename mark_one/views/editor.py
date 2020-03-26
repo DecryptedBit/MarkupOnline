@@ -1,6 +1,6 @@
 from flask import current_app, Blueprint, render_template, jsonify, send_from_directory, request
 from flask_login import login_required
-from marky.services.compiler import compile_md
+from mark_one.services.compiler import compile_md
 
 editor = Blueprint('editor', __name__, url_prefix='/editor')
 

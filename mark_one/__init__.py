@@ -18,9 +18,9 @@ def create_app():
     login_manager.init_app(app)
 
     with app.app_context():
-        from marky.views.main import main
-        from marky.views.editor import editor
-        from marky.views.auth import auth
+        from mark_one.views.main import main
+        from mark_one.views.editor import editor
+        from mark_one.views.auth import auth
         app.register_blueprint(main)
         app.register_blueprint(editor)
         app.register_blueprint(auth)
