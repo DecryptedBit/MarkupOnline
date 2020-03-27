@@ -17,14 +17,15 @@ def create_app():
     # migrate.init_app(app, db)
     login_manager.init_app(app)
 
-    with app.app_context():
-        from mark_one.views.main import main
-        from mark_one.views.editor import editor
-        from mark_one.views.auth import auth
-        app.register_blueprint(main)
-        app.register_blueprint(editor)
-        app.register_blueprint(auth)
 
+    from mark_one.views.main import main
+    from mark_one.views.editor import editor
+    from mark_one.views.auth import auth
+    app.register_blueprint(main)
+    app.register_blueprint(editor)
+    app.register_blueprint(auth)
+
+    with app.app_context():
         db.create_all()
 
         return app
