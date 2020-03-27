@@ -40,7 +40,7 @@
                     </tr>
                     {% for i in range(1, 10) %}
                     <tr class="projects-list-row">
-                        <td class="projects-list-name-container"><a href="{{ url_for('editor.ide', identifier=i) }}">Project {{ i }}</a></td>
+                        <td class="projects-list-name-container"><a href="{{ url_for('editor.ide', pid=i) }}">Project {{ i }}</a></td>
                         <td class="projects-list-info-container">Project {{ i }} &mdash; Information</td>
                         <td class="projects-list-actions-container">
                             <button class="btn btn-table btn-table-downlaod">

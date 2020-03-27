@@ -55,3 +55,15 @@ class User(db.Model):
 
     def __repr__(self):
         return "User(id='{self.id}', name='{self.username}', pw='{self.password}', email='{self.email}')".format(self=self)
+
+
+class Project(db.Model):
+    __tablename__ = 'projects'
+    id          = db.Column(db.Integer(), primary_key=True)
+    title       = db.Column(db.String(256), nullable=False)
+    markdown    = db.Column(db.String(), nullable=False)	
+    user_id     = db.Column(db.Integer(), db.ForeignKey('users.id'))
+    user		= db.relationship('User', backref=db.backref('projects'))
+
+    def __repr__(self):
+        return "Project(id='{self.id}', title='{self.title}', user_id='{self.user_id}')".format(self=self)
