@@ -8,7 +8,7 @@ editor = Blueprint('editor', __name__, url_prefix='/editor')
 @editor.route('/')
 @login_required
 def index():
-    projects = Project.query.filter(Project.user_id=current_user.id).all()
+    projects = Project.query.filter(Project.user_id == current_user.id).all()
     return render_template('editor/index.html', projects=projects)
 
 @editor.route('/<pid>')
