@@ -1,32 +1,57 @@
 {% extends "auth/base.html" %}
 
 {% block body %}
-
-<section class="grid">
-    <div class="box">
-        <h2 class="text-center">Login</h2>
-        <!-- <div class="divider"></div> -->
-        <div id="login-form" class="form">
-            <form method="POST" action="{{ url_for('auth.login') }}">
-                {{ form.hidden_tag() }}
-                <div class="form-item">
-                {{ form.username(size=32, placeholder='Username') }}
+<div class="columns">
+    <div class="column">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-title">
+                    <h2>Login</h2>
                 </div>
-                <div class="form-item">
-                {{ form.password(size=32, placeholder='Password') }}
+            </div>
+            <div class="card-content">
+                <div id="login-form" class="form">
+                    <form method="POST" action="{{ url_for('auth.login') }}">
+                        {{ form.hidden_tag() }}
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                {{ form.username(size=32, placeholder='Username', class='input') }}
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                {{ form.password(size=32, placeholder='Password', class='input') }}
+                                <span class="icon is-small is-left">
+                                <i class="fas fa-lock"></i>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control">
+                                {{ form.submit(class='button') }}
+                            </p>
+                        </div>
+                    </form>
                 </div>
-                <div class="form-item">
-                    {{ form.submit() }}
-                </div>
-            </form>
+            </div>
         </div>
     </div>
-    <div class="box">
-        <h2 class="text-center">Don't have an account?</h2>
-        <!-- <div class="divider"></div> -->
-        <p>
-            Register your account <a href="{{ url_for('auth.sign_up') }}">here</a>.
-        </p>
+    <div class="column">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-title">
+                    <h2>Don't have an account?</h2>
+                </div>
+            </div>
+            <div class="card-content">
+                <p>
+                    Register your account <a href="{{ url_for('auth.sign_up') }}">here</a>.
+                </p>
+            </div>
+        </div>    
     </div>
-</section>
+</div>
 {% endblock %}
