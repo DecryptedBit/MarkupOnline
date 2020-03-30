@@ -1,3 +1,8 @@
+html {
+    /* QUICK FIX, SHOULD PROBABLY CHANGE THIS LATER */
+    overflow-y: hidden; 
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -5,7 +10,7 @@ body {
     height: 100vh;
     height: var(--full-height, 100vh);
     width: 100vw;
-    width: var(--full-width, 100vw)
+    width: var(--full-width, 100vw);
 }
 
 main {
@@ -15,6 +20,12 @@ main {
 
 footer {
     height: 50px;
+    background: #363636;
+    color: #fff;
+}
+
+footer a:hover {
+    color: rgb(172, 172, 172);
 }
 
 /* *IDE reusables* */
@@ -36,8 +47,11 @@ footer {
     padding: 0;
     height: 60px;
     font-size: 1.2rem;
-    background-color: #3e3e3e;
+    border: 0;
+    border-radius: 0;
+    background-color: #363636;
     transition: background-color 200ms;
+    color: #fff;
 }
 
 .btn-ide-action:hover {
@@ -75,7 +89,7 @@ footer {
     display: flex;
     flex-flow: column nowrap;
     flex: 0 0 3em;
-    background: #3e3e3e;
+    background: #363636;
 }
 
     .ide-actions-top,
@@ -85,7 +99,7 @@ footer {
     }
 
 .ide-preview-wrapper {
-    background-color: #282a36 ;
+    background-color: #282a36;
     flex-basis: 50%;
     
     padding: 0.5em;

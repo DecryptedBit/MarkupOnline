@@ -1,38 +1,30 @@
 {% extends "editor/base.html" %}
 
 {% block navbar %}
-<!-- <button class="navbar-toggle">
-    <span class="navbar-toggle-icon"><i class="icon ion-md-menu"></i></span>
-</button> -->
-<div class="nav-logo">
-    <a href="{{ url_for('editor.index') }}">Mark-one</a>
-</div>
-<div class="nav-collapse"> 
-    <ul>
-        <li>
-            <a href="#">Settings</a>
-        </li>
-        <li>
-            <a href="#">Logout</a>
-        </li>
-    </ul>
+<div class="navbar-start">
+    <a  class="navbar-item" href="{{ url_for('editor.index') }}">Mark-one</a>
+</div>                    
+<div class="navbar-end">
+    <a class="navbar-item" href="#">Settings</a>
+    <a class="navbar-item" href="#">Logout</a>
 </div>
 {% endblock %}
 
 {% block body %}
-<div class="row">
+<div class="container">
     <section class="file-browser">
+        <section class="file-browser">
         <div class="projects">
             <div class="projects-toolbar">
-                <button class="btn">
+                <button class="button">
                     <span> New Project</span>
                 </button>
-                <button class="btn">
+                <button class="button">
                     <span> Other Action</span>
                 </button>
             </div>
             <div class="projects-list">
-                <table class="projects-table">
+                <table class="table is-striped is-hoverable is-fullwidth projects-table">
                     <tr class="projects-list-row projects-list-header">
                         <th class="projects-list-name-cell">Title</th>
                         <th class="projects-list-info-cell">Info</th>
@@ -43,13 +35,13 @@
                         <td class="projects-list-name-container"><a href="{{ url_for('editor.ide', pid=i) }}">Project {{ i }}</a></td>
                         <td class="projects-list-info-container">Project {{ i }} &mdash; Information</td>
                         <td class="projects-list-actions-container">
-                            <button class="btn btn-table btn-table-downlaod">
+                            <button class="button btn-table btn-table-downlaod">
                                 <span><i class="icon ion-md-download"></i></span>
                             </button>
-                            <button class="btn btn-table btn-table-copy">
+                            <button class="button btn-table btn-table-copy">
                                 <span><i class="icon ion-md-copy"></i></span>
                             </button>
-                            <button class="btn btn-table btn-table-delete">
+                            <button class="button btn-table btn-table-delete">
                                 <span><i class="icon ion-md-trash"></i></span>
                             </button>
                         </td>
@@ -60,4 +52,10 @@
         </div>
     </section>
 </div>
+{% endblock %}
+
+{% block footer %}
+    <div class="container has-text-centered">
+        <p class="copyright">Copyright © 2020 <a href="/">Mark-one</a>. All rights reserved.</p> 
+    </div>
 {% endblock %}

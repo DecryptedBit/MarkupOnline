@@ -1,27 +1,18 @@
 {% extends "editor/base.html" %}
 
 {% block navbar %}
-<!-- <button class="navbar-toggle">
-    <span class="navbar-toggle-icon"><i class="icon ion-md-menu"></i></span>
-</button> -->
-<div class="nav-logo">
-    <a href="{{ url_for('editor.index') }}">
+<div class="navbar-start">
+    <a class="navbar-item" href="{{ url_for('editor.index') }}">
         <span><i class="icon ion-md-arrow-back nav-icon"></i> Mark-one</span>
     </a>
-</div>
-<div class="nav-collapse"> 
-    <ul>
-        <li>
-            <a href="#" id="open-settings-modal">
-                <span><i class="icon ion-md-settings nav-icon"></i></span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <span><i class="icon ion-md-share nav-icon"></i></span>
-            </a>
-        </li>
-    </ul>
+</div>                    
+<div class="navbar-end">
+    <a href="#" class="navbar-item">
+        <span><i class="icon ion-md-settings nav-icon"></i></span>
+    </a>
+    <a href="#" class="navbar-item">
+        <span><i class="icon ion-md-share nav-icon"></i></span>
+    </a>
 </div>
 {% endblock %}
 
@@ -33,10 +24,10 @@
         </div>
         <div class="ide-actions-wrapper" name="ide-actions">
             <div class="ide-actions-top">
-                <button class="btn btn-square btn-ide-action btn-compile" onclick="compileMarkdown()">
+                <button class="button btn-ide-action btn-compile" onclick="compileMarkdown()">
                     <span><i class="icon ion-md-play"></i></span>
                 </button>
-                <button class="btn btn-square btn-ide-action btn-download-pdf" onclick="alert('DOWNLOAD PDF')">
+                <button class="button btn-ide-action btn-download-pdf" onclick="console.log('DOWNLOAD PDF')">
                     <span><i class="icon ion-md-download"></i></span>
                 </button>
             </div>
@@ -50,15 +41,12 @@
         </div>
     </div>
 </section>
+{% endblock %}
 
-<div class="modal-overlay modal-closed" id="modal-overlay"></div>
-<div id="settings-modal" class="modal modal-closed">
-    <div class="modal-body">
-        <h1>Settings</h1>
-        Modal body.
-        <button class="btn" id="close-settings-modal">Close</button>
+{% block footer %}
+    <div>
+        <p class="copyright">Copyright © 2020 <a href="/">Mark-one</a>. All rights reserved.</p> 
     </div>
-</div>
 {% endblock %}
 
 {% block include_css %}

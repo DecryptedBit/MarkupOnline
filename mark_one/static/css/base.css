@@ -15,10 +15,6 @@ html {
     box-sizing: border-box;
 }
 
-header {
-    margin-bottom: 2em;
-}
-
 main {
     margin-bottom: 1em;
 }
@@ -30,6 +26,7 @@ footer {
 a {
     /* TODO: pick a more interesting color */
     color: rgb(233, 113, 163); 
+    transition: color 200ms;
 }
 
 /* *Reusables* */
@@ -38,4 +35,8 @@ a {
 
 .copyright {
     padding: 20px 0;
+}
+
+.main-header {
+    margin-bottom: 2em;
 }
