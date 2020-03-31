@@ -1,11 +1,11 @@
-# Marky: An Online Markdown Editor (WIP)
+# Mark-one: An Online Markdown Editor (WIP)
 
-## Running Marky
+## Running Mark-one
 
-To run the project create a virtual environment and install the python dependencies using the `requirements.txt` file. Then
+To run the project create a virtual environment and install the dependencies using the `requirements.txt` file. Then
 
 ```
-export FLASK_APP=marky
+export FLASK_APP=mark_one
 flask run
 ```
 
