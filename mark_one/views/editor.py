@@ -1,15 +1,34 @@
-from flask import current_app, Blueprint, render_template, jsonify, send_from_directory, request
+from flask import (current_app, Blueprint, render_template, jsonify, 
+send_from_directory, request, redirect, url_for)
 from flask_login import login_required, current_user
 from mark_one.services.compiler import compile_md
 from mark_one.models import Project
+from mark_one.forms import NewProjectForm
+from mark_one import db
 
 editor = Blueprint('editor', __name__, url_prefix='/editor')
 
 @editor.route('/')
 @login_required
 def index():
+    new_form = NewProjectForm()
     projects = Project.query.filter(Project.user_id == current_user.id).all()
-    return render_template('editor/index.html', projects=projects)
+    return render_template('editor/index.html', projects=projects, new_proj_form=new_form)
+
+@editor.route('/projects/new', methods=['POST'])
+@login_required
+def new_project():
+    form = NewProjectForm(request.form)
+
+    if form.validate_on_submit():
+        project = Project(
+            title=form.title.data,
+            user_id=current_user.id
+        )
+        db.session.add(project)
+        db.session.commit()
+
+    return redirect(url_for('editor.index'))
 
 @editor.route('/<pid>')
 @login_required

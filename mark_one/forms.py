@@ -15,3 +15,7 @@ class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Sign In')
+
+class NewProjectForm(FlaskForm):
+    title = StringField('Project title', validators=[DataRequired()])
+    submit = SubmitField('Create')

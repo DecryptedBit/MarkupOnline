@@ -6,7 +6,7 @@
 </div>                    
 <div class="navbar-end">
     <a class="navbar-item" href="#">Settings</a>
-    <a class="navbar-item" href="#">Logout</a>
+    <a class="navbar-item" href="{{ url_for('auth.logout') }}">Logout</a>
 </div>
 {% endblock %}
 
@@ -16,10 +16,10 @@
         <section class="file-browser">
         <div class="projects">
             <div class="projects-toolbar">
-                <button class="button">
+                <button class="button" id="open-new-project-modal">
                     <span> New Project</span>
                 </button>
-                <button class="button">
+                <button class="button is-static">
                     <span> Other Action</span>
                 </button>
             </div>
@@ -30,10 +30,10 @@
                         <th class="projects-list-info-cell">Info</th>
                         <th class="projects-list-actions-cell">Actions</th>
                     </tr>
-                    {% for i in range(1, 10) %}
+                    {% for project in projects %}
                     <tr class="projects-list-row">
-                        <td class="projects-list-name-container"><a href="{{ url_for('editor.ide', pid=i) }}">Project {{ i }}</a></td>
-                        <td class="projects-list-info-container">Project {{ i }} &mdash; Information</td>
+                        <td class="projects-list-name-container"><a href="{{ url_for('editor.ide', pid=project.id) }}">{{ project.title }}</a></td>
+                        <td class="projects-list-info-container">{{ project.title }} &mdash; Project Information</td>
                         <td class="projects-list-actions-container">
                             <button class="button btn-table btn-table-downlaod">
                                 <span><i class="icon ion-md-download"></i></span>
@@ -47,10 +47,41 @@
                         </td>
                     </tr>
                     {% endfor %}
+                    {% if not projects %}            
+                    <tr class="has-text-centered">
+                        <td class="has-text-centered" colspan="3">
+                            No projects, create one <a href="#">here</a>
+                        </td>
+                    </tr>
+                    {% endif %}
                 </table>
             </div>
         </div>
     </section>
+</div>
+
+<div class="modal" id="new-project-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Let's create a new project</p>
+            <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <form action="{{ url_for('editor.new_project') }}" method="post">
+                {{ new_proj_form.hidden_tag() }}
+                <div class="field">
+                    <label class="label">Project title</label>
+                    <div class="control">
+                        {{ new_proj_form.title(placeholder='Project title', class='input') }}
+                    </div>
+                </div>
+                <div class="control">
+                    {{ new_proj_form.submit(class='button') }}
+                </div>
+            </form>
+        </section>
+    </div>
 </div>
 {% endblock %}
 
@@ -58,4 +89,32 @@
     <div class="container has-text-centered">
         <p class="copyright">Copyright © 2020 <a href="/">Mark-one</a>. All rights reserved.</p> 
     </div>
+{% endblock %}
+
+{% block include_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/file_browser.css') }}">
+{% endblock %}
+
+{% block include_js %}
+<script>
+    document.querySelector('button#open-new-project-modal').addEventListener('click', function(event) {
+        event.preventDefault();
+        let modal = document.querySelector('#new-project-modal');  // assuming you have only 1
+        let html = document.querySelector('html');
+        modal.classList.add('is-active');
+        html.classList.add('is-clipped');
+
+        modal.querySelector('.modal-background').addEventListener('click', function(e) {
+            e.preventDefault();
+            modal.classList.remove('is-active');
+            html.classList.remove('is-clipped');
+        });
+
+        modal.querySelector('.delete').addEventListener('click', function(e) {
+            e.preventDefault();
+            modal.classList.remove('is-active');
+            html.classList.remove('is-clipped');
+        });
+    });
+</script>
 {% endblock %}

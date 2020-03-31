@@ -40,3 +40,15 @@ a {
 .main-header {
     margin-bottom: 2em;
 }
+
+/* Overiding Bulma */
+
+.button .is-focused, 
+.button:focus {
+    border-color: transparent;
+}
+
+.button.is-focused:not(:active), 
+.button:focus:not(:active) {
+    box-shadow: 0 0 0 0 transparent;
+}

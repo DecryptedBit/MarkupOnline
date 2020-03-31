@@ -61,8 +61,9 @@ class Project(db.Model):
     __tablename__ = 'projects'
     id          = db.Column(db.Integer(), primary_key=True)
     title       = db.Column(db.String(256), nullable=False)
-    markdown    = db.Column(db.String(), nullable=False)	
+    markdown    = db.Column(db.String(), nullable=False, default='')	
     user_id     = db.Column(db.Integer(), db.ForeignKey('users.id'))
+    
     user		= db.relationship('User', backref=db.backref('projects'))
 
     def __repr__(self):

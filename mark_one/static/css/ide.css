@@ -98,6 +98,12 @@ footer a:hover {
         flex-flow: column nowrap;
     }
 
+    .ide-actions-wrapper .button:hover, 
+    .button .is-focused, 
+    .button:focus {
+        color: #fff;
+    }
+
 .ide-preview-wrapper {
     background-color: #282a36;
     flex-basis: 50%;
